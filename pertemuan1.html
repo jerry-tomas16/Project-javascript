@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Web Application</title>
+    </head>
+    <body>
+        <h1>Halo Dunia</h1>
+        <button onclick="alert('tombol diklik')">klik saya</button>
+        <hr/>
+        <h2>Informasi Pribadi</h2>
+        <div id="personal-info">
+
+        </div>
+    </body>
+
+    <script>
+        //start mendeklarasikan variabel dengan berbagai tipe data//
+        const name ="john doe";// type data string
+        const age = 30; // type data number
+        const isStudent = true; // type data boolean
+        const hobbies = ["reading", "gaming", "coding"] // type data array;
+        const person = { 
+            nama: "john doe",
+            age:25,
+            isStudent:false
+        
+        };//type data object
+        //call element by id personal-info
+        const personalInfoDiv = document.getElementById("personal-info");
+        // create a paragraph element
+        const infoParagraph = document.createElement("p");
+        //set the text content of the paragraph
+        infoParagraph.textContent = `nama: ${name}, umur: ${age}, mahasiswa: ${isStudent}, Hobi: ${hobbies.join(",")}`;
+        //append the paragraph to the personal-info div
+        personalInfoDiv.appendChild(infoParagraph);
+        // log the variables to the console
+        console.log("Informasi Pribadi");
+
+        for (let index = 0; index < hobbies.length; index++) {
+            console.log("first loop",index);
+            console.log("first loop",hobbies[index]);
+        }
+        
+
+        console.log(name,age, isStudent, hobbies,person);
+        console.log(`Nama: ${name}, Umur: ${age}, Mahasiswa: ${isStudent}`);
+        console.log("Nama saya " + person.name + ",umur saya "+ person.age + "dan status mahasiswa saya adalah" + person.isStudent + ".");
+        console.log(`nama saya ${person.name}, umur saya ${person.age},dan status mahasiswa saya adalah ${person.isstudent}.`);
+        console.log("selamat datang di aplikasi web saya!");
+        console.log("ini adalah contoh penggunaan javaScript.");
+        //end mendeklarasikan variabel dengan berbagai tipe data//
+
+        //start mendeklarasikan operator aritmatika //
+        let a = 10;
+        let b = 5;
+        console.log(a+b); // 15
+        console.log(a > b);// true
+        console.log(a === "10"); // false (membandingkan value dan tipe data)
+        let c = 15;
+        let d = 10;
+        console.log(c+d); // 25
+        console.log(c > d); // true
+        console.log(c < d ); // false
+        console.log(c === "15"); // false (membandingkan value dan tipe data)
+        console.log(c == d); // false (menmbandingkan value)
+        console.log(c != d); // true (menmbandingkan value)
+        console.log(c !== d); // true (membandingkan value dan tipe data)
+
+        //operator logika
+        console.log(a > b && a < 20); // true (kedua bener)
+        console.log(a < b || a > 5); // true (salah satu bener)
+        console.log(!(a < b )); // true (negasi)
+        console.log(a = b); // 5 (penjumlahan)
+        console.log(a - b); // 0 (pengurangan)
+        console.log(a * b); // 25 (perkalian)
+        console.log(a / b); // 1 (pembagian) 
+        console.log(a % b); //0 (sisa bagi)
+        console.log(a ** b); // 3125 (pangkat)
+        console.log(a++); // 5 (increment, nilai sebelum penambahan)
+        console.log(a); // 6 (nilai setelah penambahan)
+        console.log(b += 2); // 7 (penambahan dan penugasan)
+        console.log(b); // 7 (nilai b setelah penambahan)
+
+        //end mendeklarasikan operator aritmatika //
+    
+        //start struktur kendali//
+        let nilai = 80;
+        if ( nilai >= 75){
+            console.log("lulus");
+        } else{
+            console.log("tidak lulus")
+        }
+        // switch case
+        let day =2;
+        switch (day) {
+            case 1:
+                 console.log("Hari Senin");
+                 break;
+            case 2:
+                 console.log("Hari selasa");
+            case 3:
+                 console.log("Hari Rabu");
+                break;
+            default:
+                console.log("Hari tidak dikenal");
+        }
+        //perulanagan while
+        let count = 0;
+        while (count < 5) {
+            console.log("perubahan ke-",count);
+            count++;
+        }
+        // Perulangan for
+        for (let i = 0; i < 5; i++) {
+            console.log("Perulangan ke-",i);   
+        }
+        // end struktur kendali //
+
+        //star fungsi //
+
+        function greet(name) {
+            return `Halo, ${name}!`;
+        };
+        console.log(greet("jhon"));
+        const greetArrow = (name) => {
+            return `halo, ${name}!`;
+        };
+        console.log(greetArrow("jane"));
+
+        function greetWithDefault(name = "Pengunjung") {
+            return `Halo, ${name}!`;
+        }
+        console.log(greetWithDefault());
+        console.log(greetWithDefault("alice"));
+
+        //end fungsi //
+
+        // start object array //
+        const students = [{
+            name: "john",
+            age: 20
+        },
+        {
+            name: "jane",
+            age: 22
+        
+        },
+        {
+            name: "alice",
+            age: 19
+
+        },
+    ];
+    console.log(students);
+
+    students.forEach(student => {
+        console.log(`nama: ${student.name}, Umur: ${student.age}`);
+    });
+
+    //end object array //
+
+
+    </script>
+</html>

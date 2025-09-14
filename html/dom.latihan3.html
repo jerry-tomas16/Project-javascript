@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biodata</title>
+    <style>
+      body {
+        background: #f4f8fb;
+        font-family: "Segoe UI", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .rumah {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 25px;
+        margin: 40px auto;
+        max-width: 900px;
+      }
+
+      .mycontainer {
+        flex: 1;
+        min-width: 320px;
+        max-width: 400px;
+        margin: 0;
+        padding: 32px 24px 24px 24px;
+        border-radius: 8px;
+        background: #086de1;
+        box-shadow: #064a9e 0px 3px 6px;
+        color: #fff;
+      }
+
+      .biodata {
+        background: #6dacf5;
+        color: #222;
+      }
+
+      h2 {
+        margin-top: 0;
+        margin-bottom: 24px;
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+        text-align: center;
+      }
+
+      label {
+        display: inline-block;
+        min-width: 80px;
+        font-weight: 500;
+        margin-bottom: 6px;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        padding: 8px 10px;
+        margin-bottom: 12px;
+        border: none;
+        border-radius: 6px;
+        font-size: 1rem;
+        background: #eaf2fb;
+        color: #222;
+        box-sizing: border-box;
+        transition: box-shadow 0.2s;
+      }
+
+      input[type="text"]:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px #e79405;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px 0;
+        background: #fff;
+        color: #086de1;
+        border: none;
+        border-radius: 6px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 8px;
+        transition: background 0.2s, color 0.2s;
+      }
+
+      button:hover {
+        background: #eaf2fb;
+        color: #064a9e;
+      }
+
+      .biodata label {
+        color: #222;
+        font-weight: 500;
+      }
+
+      .biodata > div {
+        margin-bottom: 12px;
+      }
+
+      .biodata label[id^="label"] {
+        font-weight: 400;
+        margin-left: 8px;
+        color: #333;
+      }
+    .table-info {
+            max-width: 900px;
+            margin: 32px auto 0 auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px #b3c6e0;
+            padding: 24px 18px;
+        }
+
+        .table-info table {
+            width: 200%;
+            border-collapse: collapse;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f4f8fb;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .table-info th,
+        .table-info td {
+            padding: 12px 10px;
+            text-align: left;
+        }
+
+        .table-info th {
+            background: #086de1;
+            color: #fff;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #6dacf5;
+        }
+
+        .table-info tr:nth-child(even) {
+            background: #eaf2fb;
+        }
+
+        .table-info tr:hover {
+            background: #d2e6fa;
+            transition: background 0.2s;
+        }
+
+        .table-info td {
+            color: #222;
+            font-size: 1rem;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="rumah">
+      <div class="mycontainer">
+        <h2>form biodata</h2>
+        <label>nama:</label>
+        <input type="text" id="nama" placeholder="input nama" />
+        <input type="hidden" id="hiddenId" placeholder="Input id">
+        <div>
+          <label>usia:</label>
+          <input type="text" id="usia" placeholder="input usia" />
+        </div>
+        <div>
+          <label>pekerjaan:</label>
+          <input type="text" id="pekerjaan" placeholder="input pekerjaan" />
+        </div>
+        <div>
+          <label>Agama:</label>
+          <input type="text" id="agama" placeholder="input agama" />
+        </div>
+        <div>
+          <label>Alamat:</label>
+          <input type="text" id="alamat" placeholder="input alamat" />
+        </div>
+        <div>
+          <label>Status:</label>
+          <input type="text" id="status" placeholder="input status" />
+        </div>
+        <button onclick="pindahkanTeks()" id="saveButton">save</button>
+        <button onclick="handleEditData()" id="editButton" style="display:none;">edit</button>
+      </div>
+      <div class="mycontainer biodata">
+        <h2>Biodata</h2>
+        <div>
+          <label>nama:</label>
+          <label id="labelNama"></label>
+        </div>
+        <div>
+          <label>usia:</label>
+          <label id="labelUsia"></label>
+        </div>
+        <div>
+          <label>pekerjaan:</label>
+          <label id="labelPekerjaan"></label>
+        </div>
+        <div>
+          <label>agama:</label>
+          <label id="labelAgama"></label>
+        </div>
+        <div>
+          <label>alamat:</label>
+          <label id="labelAlamat"></label>
+        </div>
+        <div>
+          <label>status:</label>
+          <label id="labelStatus"></label>
+        </div>
+      </div>
+    </div>
+    <div class="table-info">
+        <table style="width:100%; border-collapse: collapse; margin-top: 24px;">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>Usia</th>
+                    <th>Pekerjaan</th>
+                    <th>Agama</th>
+                    <th>Alamat</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <tr>
+                    <td colspan="8" style="text-align: center; color:#888;">Data not found</td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    </div>
+  </body>
+  <script src="../javascript/dom-latihan3.js"></script>
+</html>

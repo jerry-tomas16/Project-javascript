@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Struktur Rumah</title>
+    <style>
+        .container {
+            width: 90%;
+            margin: 20px auto;
+        }
+
+        .rumah {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .ruangan {
+            flex: 1;
+            margin: 0 10px;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #f0f0f0;
+        }
+
+        .ruang-tamu {
+            background-color: lightblue;
+        }
+
+        .kamar {
+            background-color: lightpink;
+        }
+
+        .dapur {
+            background-color: lightgreen;
+        }
+
+        .extra {
+            background-color: lightsalmon;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+    <div class="rumah">
+    <div class="ruangan ruang-tamu">
+        <h3>Kalkulator tambah</h3>
+        <input type="number" id="Tambahan1"> +
+        <input type="number" id="Tambahan2">
+        <button onclick="hitung()">Hitung</button>
+        <p>Hasil: <span id="hasil"></span></p>
+    </div>
+    <hr/>
+    <div class="ruangan kamar">
+        <h3>Kalkulator Pengurangan</h3>
+        <input type="number" id="Pengurangan1"> -
+        <input type="number" id="Pengurangan2">
+        <button onclick="Pengurangan()">Hitung</button>
+        <p>Hasil: <span id="hasil-Pengurangan"></span></p>
+             
+    </div>
+    <hr/>
+    <div class="ruangan dapur">
+        <h3>Kalkulator Perkalian</h3>
+        <input type="number" id="Perkalian1"> *
+        <input type="number" id="Perkalian2">
+        <button onclick="Perkalian()">Hitung</button>
+        <p>Hasil: <span id="hasil-Perkalian"></span></p>
+                
+    </div>
+    <hr/>
+    <div class="ruangan extra">
+        <h3>Kalkulator Pembagian</h3>
+        <input type="number" id="Pembagian1"> /
+        <input type="number" id="Pembagian2">
+        <button onclick="Pembagian()">Hitung</button>
+        <p>Hasil: <span id="hasil-Pembagian"></span></p>
+              
+    </div>
+    </div>
+        <div id="rumah">
+        <h2 id="teks">Rupa rupa warna</h2>
+        <button onclick="gantiWarna('red')">merah</button>
+        <button onclick="gantiWarna('yellow')">kuning</button>
+        <button onclick="gantiWarna('green')">hijau</button>
+        <button onclick="gantiWarna('blue')">biru</button>
+        
+    
+    </div>
+</body>
+<script src="..//javascript/dom-manipulation-latihan.js"></script>
+
+</html> 

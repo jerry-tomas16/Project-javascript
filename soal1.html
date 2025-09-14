@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>latihan-Pertamahtml</title>
+        <style>
+            .myContainer{
+                height: 400px;
+                width: 100%;
+                background-color: lightblue;
+                border: 2px solid black;
+                border-radius: 1px;
+                position: relative;
+
+            }
+            .myContainer .dataku{
+                padding-left:10px;
+                color: black;
+                width: 50%;
+                height: 100%;
+                background-color: aquamarine;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            .myContainer .dataku table{
+                width: 98%;
+                border-collapse: collapse;
+
+            }
+            .myContainer .dataku th,
+            .myContainer .dataku td {
+                border: 1px solid black;
+                padding: 8px;
+                text-align: left;
+            }
+            .myContainer .dataku tr:nth-child(even) {
+                background-color: lightblue;
+            }
+            .myContainer .dataku tbody tr:hover {
+                background-color: lightgreen;
+                opacity: 0,8;
+            }
+            .myContainer .videoku {
+               padding-left:10px;
+               padding-right: 10px;
+                color: black;
+                width: 50%;
+                height: 100%;
+                background-color: rgb(9, 153, 105);
+                position: absolute;
+                top: 0;
+                left: 50%; 
+                
+            }
+            .myContainer .videoku iframe {
+                width: 98%;
+                height: 50%;
+                border: none;
+            }
+            .halamanku{
+                width: 100%;
+                height: 500px;
+                border: 2px solid red;
+                background-color: lightblue;
+                position: relative;
+                margin-top: 10px;
+            }
+            .halamanku .perpustakaan{
+                padding-left: 10px;
+                color: rgb(54, 51, 47);
+                width: 33%;
+                height: 100%;
+                background-color: lightseagreen;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            .halamanku .laboratorium{
+                padding-left: 10px;
+                color: black;
+                width: 33%;
+                height: 100%;
+                background-color: lightsalmon;
+                position: absolute;
+                top: 0;
+                left: 33%;
+            }
+            img {
+                display: block;
+                margin: auto;
+                width: 100%;
+                height: auto;
+                max-width: 80%;
+            }
+            .halamanku .kantin{
+                padding-left: 33px;
+                color: rgb(39, 39, 43);
+                width: 33%;
+                height: 100%;
+                background-color: lightsteelblue;
+                position: absolute;
+                top: 0%;
+                left: 66%;
+            }
+            .halamanku .kantin table{
+                width: 97%;
+                border-collapse: collapse;
+            }
+            .halamanku .kantin th,
+            .halamanku .kantin td {
+                border: 1px solid black;
+                padding: 8px;
+                text-align: left;
+            }
+            tr:nth-child(even) {
+                background-color: rgb(238, 172, 172);
+            }
+            tbody tr:hover{
+                background-color: rgb(17, 17, 201);
+            }
+
+        </style>
+
+    </head>
+    <body>
+        <h1>Latihan-pertama-html</h1>
+        <div class="myContainer">
+            <div class="dataku">
+                <h2>data table karyawan</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 50px;text-align: center;">No</th>
+                            <th>data karyawan</th>
+                            <th style="width: 80px;text-align: center;">Jabatan</th>
+                            <th style="width: 80px;text-align: center;">Usia</th>
+                            <th style="width: 80px;text-align: center;">Alamat</th>
+                            <th style="width: 80px;text-align: center;">jenis kelamin</th>
+                            <th style="width: 80px;text-align: center;">Gaji</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align: center;">1</td>
+                            <td>Jerry</td>
+                            <td style="text-align: center;">Programmer</td>
+                            <td style="text-align: center;">28</td>
+                            <td style="text-align: center;">Jakarta</td>
+                            <td style="text-align: center;">Laki-laki</td>
+                            <td style="text-align: center;">Rp.5000.000</td>
+                        </tr>
+                           <tr>
+                            <td style="text-align: center;">2</td>
+                            <td>Joko</td>
+                            <td style="text-align: center;">desainer</td>
+                            <td style="text-align: center;">30</td>
+                            <td style="text-align: center;">Bandung</td>
+                            <td style="text-align: center;">Laki-laki</td>
+                            <td style="text-align: center;">Rp.4.500.000</td>
+                        </tr>
+                             </tr>
+                           <tr>
+                            <td style="text-align: center;">3</td>
+                            <td>Siti</td>
+                            <td style="text-align: center;">Analis</td>
+                            <td style="text-align: center;">28</td>
+                            <td style="text-align: center;">Surabaya</td>
+                            <td style="text-align: center;">perempuan</td>
+                            <td style="text-align: center;">Rp.4.000.000</td>
+                        </tr>
+                        </tbody>
+                </table>
+            </div>
+            <div class="videoku">
+                <h2>video karyawan</h2>
+                <iframe width="100%"height="325"src="https://www.youtube.com/embed/BzYMFd-lQL4"
+                title="youtube video player" frameborder="0"allowfullscreen></iframe>
+                <p>Video ini menampilkan aktivitas sehari-hari karyawan dikantor</p>
+                <p>video ini menggambarkan budaya suasan kerja dikantor kami</p>
+                <p>untuk informasi lebih lanjut,kunjungi <a href="https://www.example.com">website kami</a></p>
+
+            </div>
+        </div>
+        <div class="halamanku">
+            <div class="perpustakaan">
+                <h2>perpustakaan</h2>
+                <p>ini adalah perpusakaan saya</p>
+                <ol>
+                    <li>buku</li>
+                    <li>RakBuku</li>
+                    <li>meja belajar</li>
+                </ol>
+                <img src="https://awsimages.detik.net.id/community/media/visual/2024/09/03/1498878143_169.jpeg?w=1200" alt="perpusakaan image">
+            </div>
+            <div class="laboratorium">
+                <h2>laboratorium</h2>
+                <p>ini adalah laboratorium saya</p>
+                <ul>
+                    <li>meja</li>
+                    <li>kursi</li>
+                    <li>alat praktek</li>
+                </ul>
+                <img src="https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2023/02/10052204/Manfaat-Pemeriksaan-HpSA-dalam-Deteksi-Helicobacter-Pylori.jpg"alt="laboratorium image">
+            </div>
+            <div class="kantin">
+                <h2>kantin</h2>
+                <p>ini adalah kantin saya</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 3opx;text-align: center;">No</th>
+                            <th>Perlengkapan Kantin</th>
+                            <th style="width: 80px;text-align: center;">Jumlah</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align: center;">1</td>
+                            <td>meja</td>
+                            <td style="text-align: center;">1</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">2</td>
+                            <td>kursi</td>
+                            <td style="text-align: center;">2</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">4</td>
+                            <td>kulkas</td>
+                            <td style="text-align: center;">1</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+    </body>
+</html>

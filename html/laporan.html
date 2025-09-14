@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form input category</title>
+    <style>
+        body {
+            background: #f8f9fa;
+            font-family: Arial, sans-serif;
+            padding: 40px;
+        }
+
+        .biodata {
+            background: #fff;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 24px 32px 32px 32px;
+            border-radius: 10px;
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        label {
+            display: block;
+            margin-top: 18px;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        input[type="number"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            margin-bottom: 4px;
+            background: #f6f6f6;
+            transition: border-color 0.2s;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #007bff;
+            outline: none;
+            background: #fff;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        /* Optional: Add a submit button style */
+        button,
+        input[type="submit"] {
+            margin-top: 20px;
+            padding: 10px 24px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button:hover,
+        input[type="submit"]:hover {
+            background: #0056b3;
+        }
+
+        .table-info {
+            max-width: 1200px;
+            margin: 32px auto 0 auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px #b3c6e0;
+            padding: 24px 18px;
+        }
+
+        .table-info table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f4f8fb;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .table-info th,
+        .table-info td {
+            padding: 12px 10px;
+            text-align: left;
+        }
+
+        .table-info th {
+            background: #086de1;
+            color: #fff;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #6dacf5;
+        }
+
+        .table-info tr:nth-child(even) {
+            background: #eaf2fb;
+        }
+
+        .table-info tr:hover {
+            background: #d2e6fa;
+            transition: background 0.2s;
+        }
+
+        .table-info td {
+            color: #222;
+            font-size: 1rem;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div style="display: flex; gap: 12px; justify-content: center; align-items: flex-start;">
+        <div class="biodata" style="flex: 1 1 340px; max-width: 450px;">
+            <h2>Input Laporan Keuangan</h2>
+            <label for="jenis">Jenis Transaksi:</label>
+            <select id="jenis" name="jenis" onchange="handleJenisChange()">
+                <option value="pemasukan">Pemasukan</option>
+                <option value="pengeluaran">Pengeluaran</option>
+            </select>
+            <input type="hidden" id="hiddenId" placeholder="Input id">
+
+            <label for="kategori_id">Kategori:</label>
+            <select id="kategori_id" name="kategori_id" disabled>
+                <option value="1">Gaji</option>
+                <option value="2">Makan</option>
+                <option value="3">Transport</option>
+                <option value="4">Listrik</option>
+                <option value="5">Hiburan</option>
+            </select>
+
+            <label for="jumlah">Jumlah:</label>
+            <input type="number" id="jumlah" name="jumlah" placeholder="Masukkan nominal">
+
+            <label for="tanggal">Tanggal:</label>
+            <input type="date" id="tanggal" name="tanggal">
+
+            <label for="keterangan">Keterangan:</label>
+            <textarea id="keterangan" name="keterangan" rows="3" placeholder="Tulis catatan..."></textarea>
+
+            <button type="submit" onclick="handleSave()" id="saveButton">Simpan</button>
+            <button onclick="handleEditData()" id="editButton" style="display:none;">edit</button>
+        </div>
+        <div class="biodata" style="flex: 1 1 340px; max-width: 450px; min-height: 420px;">
+            <h2>Detail Laporan</h2>
+            <div style="margin-top: 18px;">
+                <p><strong>Jenis:</strong> <span id="detail-jenis">-</span></p>
+                <p><strong>Kategori:</strong> <span id="detail-kategori">-</span></p>
+                <p><strong>Jumlah:</strong> <span id="detail-jumlah">-</span></p>
+                <p><strong>Tanggal:</strong> <span id="detail-tanggal">-</span></p>
+                <p><strong>Keterangan:</strong> <span id="detail-keterangan">-</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="table-info" style="margin-top:40px; max-width:1200px;">
+        <h2>Daftar Laporan</h2>
+        <div style="margin-bottom:18px;">
+            <select id="filterJenis" style="padding:8px 12px;border-radius:6px; border:1px solid #ccc;"
+            onchange="filterLaporan(this.value)">
+        <option value="">semua</option>
+        <option value="pemasukan">pemasukan</option>
+        <option value="pengeluaran">pengeluaran</option>
+    </select>
+        </div>
+        <table id="laporanTable" style="width:100%; border-collapse:collapse; min-width:800px;">
+            <thead>
+                <tr style="background:#f1f1f1;">
+                    <th style="border:1px solid #ccc; padding:12px;">No</th>
+                    <th style="border:1px solid #ccc; padding:12px;">Jenis</th>
+                    <th style="border:1px solid #ccc; padding:12px;">Kategori</th>
+                    <th style="border:1px solid #ccc; padding:12px;">Jumlah</th>
+                    <th style="border:1px solid #ccc; padding:12px;">Tanggal</th>
+                    <th style="border:1px solid #ccc; padding:12px;">Keterangan</th>
+                    <th style="border:1px solid #ccc; padding:12px;">Action</th>
+                </tr>
+            </thead>
+            <tbody id="tblbody-laporan">
+                <tr>
+                    <td colspan="7" style="text-align:center; color:#888;">Data not found</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="../javascript/laporan.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>User Page CRUD Latihan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            padding: 32px 24px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #f76b1c;
+            margin-bottom: 24px;
+        }
+
+        .main-layout {
+            display: flex;
+            gap: 32px;
+        }
+
+        .form-section {
+            flex: 1;
+        }
+
+        .details-section {
+            flex: 1;
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 16px;
+            min-height: 260px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px 12px;
+            margin-bottom: 18px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: #fafafa;
+            transition: border-color 0.2s;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #f76b1c;
+            outline: none;
+        }
+
+        .actions {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-start;
+            margin-top: 12px;
+        }
+
+        button {
+            background: #f76b1c;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 24px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: #e65c00;
+        }
+
+        .table-section {
+            margin-top: 32px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fafafa;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th,
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #eee;
+            text-align: left;
+        }
+
+        th {
+            background: #f76b1c;
+            color: #fff;
+        }
+
+        tr:hover {
+            background: #ffe0c2;
+            cursor: pointer;
+        }
+
+        .result {
+            margin-top: 12px;
+            font-size: 0.95rem;
+            color: #444;
+            word-break: break-word;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>User CRUD Latihan</h2>
+        <div class="main-layout">
+            <div class="form-section">
+                <form id="userForm">
+                    <label for="userId">User ID</label>
+                    <input type="number" id="userId" name="userId" min="1" required>
+
+                    <label for="id">ID</label>
+                    <input type="number" id="id" name="id" min="1" required>
+
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" required>
+
+                    <label for="body">Body</label>
+                    <textarea id="body" name="body" rows="4" required></textarea>
+
+                    <div class="actions">
+                        <button type="button" onclick="createData()">Create</button>
+                        <button type="button" onclick="updateData()">Update</button>
+                        <button type="button" onclick="deleteData()">Delete</button>
+                        <button type="button" onclick="clearForm()">Clear</button>
+                    </div>
+                </form>
+                <div class="result" id="result"></div>
+            </div>
+            <div class="details-section" id="details">
+                <strong>Detail Data</strong>
+                <div id="detailsContent" style="margin-top:10px;color:#444;">Pilih data pada tabel untuk melihat detail.
+                </div>
+            </div>
+        </div>
+        <div class="table-section">
+            <table id="dataTable">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th style="width: 80px;">User ID</th>
+                        <th>Title</th>
+                        <th>Body</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data rows will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="../../javascript/integrasi/endPoint.js"></script>
+</body>
+
+</html>

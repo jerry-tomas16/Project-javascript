@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>pertemuan2</title>
+        <style>
+            .myContainer{
+                height: 100px;
+                width: 200px;
+                background-color: rgb(226, 142, 15);
+                border: 2px solid rgb(196, 30, 30);
+                border-radius: 1px;
+            }
+            .rumah{
+                width: 100%;
+                height: 500px;
+                border: 2px solid black;
+                background-color: rgb(218, 213, 208);
+                position: relative;
+                margin-top: 10px;
+            }
+
+            .rumah .ruang-tamu{
+                padding-left: 10px;
+                color: white;
+                width: 25%;
+                height: 100%;
+                background-color: rgba(3, 66, 121, 0.966);
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            .rumah .kamar{
+                padding-left: 10px;
+                color: aliceblue;
+                width: 25%;
+                height: 100%;
+                background-color: brown;
+                position: absolute;
+                top: 0;
+                left: 25%;
+            }
+            img {
+                display: block;
+                margin:  auto;
+                width: 100%;
+                height: auto;
+                max-width: 90%;
+                
+            }
+            .rumah .dapur{
+                padding-left: 10px;
+                color: rgb(26, 24, 22);
+                width: 50%;
+                height: 100%;
+                background-color: rgb(173, 236, 236);
+                position: absolute;
+                top: 0;
+                left: 50%;
+            }
+            .rumah .dapur table {
+                width: 97%;
+                border-collapse: collapse;
+            }
+            .rumah .dapur th,
+            .rumah .dapur td {
+                border: 1px solid black;
+                padding: 8px;
+                text-align: left;
+            }
+            tr:nth-child(even) {
+                background-color: burlywood;
+            }
+            tbody tr:hover{
+                background-color: aqua;
+            }
+
+        </style>
+    </head>
+    <boby>
+        <h1>pertemuan2:Struktur dasar html</h1>
+       <div class="myContainer">
+
+       </div> 
+       <div class="rumah">
+            <div class="ruang-tamu">
+                <h2>Ruang Tamu</h2>
+                <p>ini adalah ruang tamu saya.</p>
+                <ol>
+                    <li>meja</li>
+                    <li>kursi</li>
+                    <li>Televisi</li>
+                    <li>Lampu</li>
+                    <li></li>
+                </ol>
+                <img src="./image/download.jpg" alt="ruang Tamu image">
+            </div>
+            <div class="kamar">
+                <h2>Kamar Tidur</h2>
+                <p>ini adalah kamar tidur saya</p>
+                <ul>
+                    <li>Tempat Tidur</li>
+                    <li>Lemari</li>
+                    <li>meja rias</li>
+                    <li>jendela</li>
+                    <li>lampu tidur</li>
+                </ul>
+                <img src="https://www.pantaimentari.com/upload/2021/09/Pencahayaan_kamar-2.jpg" alt="kamar tidur image">
+            </div>
+            
+            <div class="dapur">
+                <h2>List Peralatan Dapur</h2>
+                <p>Ini adalah dapur saya.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 30px;text-align: center;">No</th>
+                            <th>Peralatan Dapur</th>
+                            <th style="width: 80px;text-align: center;">Jumlah</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align: center;">1</td>
+                            <td>kompor</td>
+                            <td style="text-align: center;">1</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">2</td>
+                            <td>wastafel</td>
+                            <td style="text-align: center;">1</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">3</td>
+                            <td>kulkas</td>
+                            <td style="text-align: center;">1</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">4</td>
+                            <td>microwave</td>
+                            <td style="text-align: center;">2</td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+    </boby>
+</html>

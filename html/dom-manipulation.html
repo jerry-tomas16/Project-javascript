@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+    <h1>DOM Manipulation</h1>
+    <p id="demo">Hello World!</p>
+    <button onclick="changeText()">Click Me</button>
+    <button id="tombol">klik saya</button>
+    </div>
+    <div>
+        <p id="feeling">apakah kamu mencintai diriku?</p>
+        <button onclick="changeValue('yes')">yes</button>
+        <button onclick="changeValue('no')">no</button>
+    </div>
+    <div>
+        <form onsubmit="cekForm()">
+            <input type="text" id="nama" placeholder="Nama">
+            <button type="submit">kirim</button>
+        </form>
+
+    </div>
+    <hr/>
+    <div>
+        <h3>Kalkulator Sederhana</h3>
+        <input type="number" id="angka1"> +
+        <input type="number" id="angka2">
+        <button onclick="hitung()">Hitung</button>
+        <p>Hasil: <span id="hasil"></span></p>
+    </div>
+    <hr/>
+    <div>
+        <h3>Pengurangan dan Penmbahan Angka</h3>
+        <button onclick="tambahAngka('tambah')">+</button>
+        <span id="angka">0</span>
+        <button onclick="tambahAngka('kurang')">-</button>
+        <p>Grade: <span id="Grade"></span></p>
+    </div>
+</body>
+<script src="../javascript/dom-manipulation.js"></script>
+
+</html>
