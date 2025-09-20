@@ -1,8 +1,8 @@
-const fetchAllPosts = async () => {
+const fetchAllTodos = async () => {
   try {
-    const response = await fetch("https://gorest.co.in/public/v2/posts");
+    const response = await fetch("https://gorest.co.in/public/v2/todos");
     if (!response.ok) {
-      throw new Error(`HTTP error! body: ${response.status}`);
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
     return data;
@@ -11,9 +11,9 @@ const fetchAllPosts = async () => {
     return null;
   }
 };
-const fetchPostsById = async (id) => {
+const fetchTodosById = async (id) => {
   try {
-    const response = await fetch(`https://gorest.co.in/public/v2/posts/${id}`);
+    const response = await fetch(`https://gorest.co.in/public/v2/todos/${id}`);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -25,9 +25,9 @@ const fetchPostsById = async (id) => {
   }
 };
 
-const fetchDeletePostsById = async (id) => {
+const fetchDeleteTodosById = async (id) => {
   try {
-    const response = await fetch(`https://gorest.co.in/public/v2/posts/${id}`, {
+    const response = await fetch(`https://gorest.co.in/public/v2/todos/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -44,9 +44,9 @@ const fetchDeletePostsById = async (id) => {
     return false;
   }
 };
-const fetchUpdatePostsById = async (id, data) => {
+const fetchUpdateTodosById = async (id, data) => {
   try {
-    const response = await fetch(`https://gorest.co.in/public/v2/posts/${id}`, {
+    const response = await fetch(`https://gorest.co.in/public/v2/todos/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -65,9 +65,9 @@ const fetchUpdatePostsById = async (id, data) => {
     return null;
   }
 };
-const fetchCreatePosts = async (data) => {
+const fetchCreateTodos = async (data) => {
   try {
-    const response = await fetch(`https://gorest.co.in/public/v2/posts`, {
+    const response = await fetch(`https://gorest.co.in/public/v2/todos`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -87,7 +87,7 @@ const fetchCreatePosts = async (data) => {
   }
 };
 document.addEventListener("DOMContentLoaded", async () => {
-  const result = await fetchAllPosts();
+  const result = await fetchAllTodos();
   console.log(result);
   if (result.length > 0) {
     renderTable(result);
@@ -103,7 +103,9 @@ function renderTable(dataList) {
                     <td>${data.id}</td>
                     <td>${data.user_id}</td>
                     <td>${data.title}</td>
-                    <td>${data.body}</td>
+                    <td>${data.due_on}</td>
+                    <td>${data.status}</td>
+                   
                 `;
     tr.onclick = () => showDetails(data.id);
     tbody.appendChild(tr);
@@ -113,19 +115,23 @@ function renderTable(dataList) {
 const showDetails = async (id) => {
   console.log("id", id);
   try {
-    const findData = await fetchPostsById(id);
+    const findData = await fetchTodosById(id);
     console.log("first", findData);
     const data = findData;
     document.getElementById("detailsContent").innerHTML = `
                 <div><strong>Id:</strong> ${data.id}</div>
-                <div><strong>User_id:</strong> ${data.user_id}</div>
+                <div><strong>Post Id:</strong> ${data.user_id}</div>
                 <div><strong>Title:</strong> ${data.title}</div>
-                <div><strong>Body:</strong> ${data.body}</div>
+                <div><strong>Date:</strong> ${data.due_on}</div>
+                <div><strong>Status:</strong> ${data.status}</div>
+                
                 `;
     document.getElementById("id").value = data.id;
     document.getElementById("user_id").value = data.user_id;
     document.getElementById("title").value = data.title;
-    document.getElementById("body").value = data.body;
+    document.getElementById("due_on").value = data.due_on;
+    document.getElementById("status").value = data.status;
+    
   } catch (error) {
     console.error("Error fetching user details:", error);
   }
@@ -141,7 +147,7 @@ function showResult(msg) {
 const deleteData = async () => {
   try {
     const id = Number(document.getElementById("id").value);
-    const deleteData = await fetchDeletePostsById(id);
+    const deleteData = await fetchDeleteTodosById(id);
     console.log("deleteData", deleteData);
     if (deleteData === true) {
       showResult("DELETE:Data dengan ID " + id + "dihapus.");
@@ -157,15 +163,18 @@ const deleteData = async () => {
 };
 const getFormData = () => {
   return {
-    id: document.getElementById("id").value,
-    user_id: document.getElementById("user_id").value,
+
+    id: Number(document.getElementById("id").value),
+    user_id: Number(document.getElementById("user_id").value),
     title: document.getElementById("title").value,
-    body: document.getElementById("body").value,
+    email: document.getElementById("due_on").value,
+    status: document.getElementById("status").value,
   };
 };
+
 const updateData = async () => {
   const data = getFormData();
-  const updateData = await fetchUpdatePostsById(data.id, data);
+  const updateData = await fetchUpdateTodosById(data.id, data);
   console.log("first", updateData);
   if (updateData) {
     showResult("Update: Data dengan ID " + data.id + " berhasil diperbarui.");
@@ -179,7 +188,7 @@ const updateData = async () => {
 const createData = async () => {
   try {
     const data = getFormData();
-    const createdData = await fetchCreatePosts(data);
+    const createdData = await fetchCreateTodos(data);
     console.log("createdData", createdData);
     clearForm();
   } catch (error) {}

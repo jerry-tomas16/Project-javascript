@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Project</title>
     <style>
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: 'Segoe UI',Arial, sans-serif;
             background: linear-gradient(120deg, #f6d365);
             margin: 0;
             padding: 0;
             min-height: 100vh;
         }
-
         .container {
             max-width: 1200px;
             margin: 40px auto;
@@ -21,24 +19,20 @@
             border-radius: 16px;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
             padding: 32px 24px;
-
+        
         }
-
         h2 {
             text-align: center;
             color: #f76b1c;
             margin-bottom: 24px;
         }
-
         .main-layout {
             display: flex;
             gap: 32px;
         }
-
         .form-section {
             flex: 1;
         }
-
         .details-section {
             flex: 1;
             background: #f9f9f9;
@@ -46,15 +40,13 @@
             padding: 16px;
             min-height: 260px;
         }
-
         label {
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
             color: #333;
-
+        
         }
-
         input,
         textarea {
             width: 100%;
@@ -66,13 +58,11 @@
             background: #fafafa;
             transition: border-color 0.2s;
         }
-
         input:focus,
         textarea:focus {
             border-color: #f76b1c;
             outline: none;
         }
-
         .actions {
             display: flex;
             gap: 12px;
@@ -90,16 +80,13 @@
             cursor: pointer;
             transition: background 0.25;
         }
-
         button:hover {
             background: #e65c00;
 
         }
-
         .table-section {
             margin-top: 32px;
         }
-
         table {
             width: 100%;
             border-collapse: collapse;
@@ -107,50 +94,47 @@
             border-radius: 8px;
             overflow: hidden;
         }
-
         th,
         td {
             padding: 10px 12px;
             border-bottom: 1px solid #eee;
             text-align: left;
         }
-
         th {
             background: #f76b1c;
             color: #fff;
         }
-
         tr:hover {
             background: #ffe0c2;
             cursor: pointer;
         }
-
         .result {
             margin-top: 12px;
             font-size: 0.95rem;
-            color: #444;
+            color:#444;
             word-break: break-word;
         }
     </style>
 </head>
-
 <body>
     <div class="container">
-        <h2>My mini Project2</h2>
+        <h2>My mini Project</h2>
         <div class="main-layout">
             <div class="form-section">
                 <form id="userForm">
-                    
+                    <label for="post_id">Post id</label>
+                    <input type="post_id" id="post_id" min="1" required>
+
+                    <label for="name">Nama</label>
+                    <input type="text" id="name" min="1" required>
                     <input type="hidden" id="id" min="1" required>
 
-                    <label for="user_id">User_id</label>
-                    <input type="text" id="user_id" name="user_id" min="1" required disabled>
-
-                    <label for="title">Title</label>
-                    <input type="text" id="title" name="title" required>
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email" min="1" required>
 
                     <label for="body">Body</label>
-                    <textarea id="body" type="body" name="body" rows="4" required></textarea>
+                    <input type="text" id="body" name="body" required>
+
 
                     <div class="actions">
                         <button type="button" onclick="createData()">Create</button>
@@ -163,8 +147,7 @@
             </div>
             <div class="details-section" id="details">
                 <strong>Detail Data</strong>
-                <div id="detailsContent" style="margin-top: 10px;color:#444;">Pilih data pada tabel untuk melihat
-                    detail.
+                <div id="detailsContent" style="margin-top: 10px;color:#444;">Pilih data pada tabel untuk melihat detail.
                 </div>
             </div>
         </div>
@@ -173,8 +156,9 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th style="width: 80px;">USER IS</th>
-                        <th>TITLE</th>
+                        <th>POST ID</th>
+                        <th style="width: 80px;">NAMA</th>
+                        <th>EMAIL</th>
                         <th>BODY</th>
                     </tr>
                 </thead>
@@ -184,9 +168,8 @@
             </table>
         </div>
     </div>
-    <script src="../../javascript/integrasi/latihan7.js"></script>
+    <script src="../../javascript/integrasi/comment.js"></script>
 
-
+    
 </body>
-
 </html>
